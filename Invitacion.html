@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f3e8fc, #ede1f9, #e9d9f7);
+            color: #4e157c;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 400;
+            margin: 10px 0;
+        }
+
+        .decorated-title {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #7c4ba9;
+            letter-spacing: 3px;
+            margin: 20px 0;
+        }
+
+        .rounded-box {
+            background-color: #f9f2ff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #8e44ad;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #732d91;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 1s ease;
+        }
+
+        .carousel-images img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .countdown div {
+            background-color: #f9f2ff;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown div span {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .countdown div small {
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .rounded-box {
+                width: 90%;
+            }
+
+            .carousel-images img {
+                width: 100%;
+            }
+
+            .countdown div {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>MIA</h1>
+    <h2>Mis 15 años</h2>
+    <div class="decorated-title">FIESTA</div>
+
+    <div class="rounded-box">
+        <h3>Fecha</h3>
+        <p>Sábado 3 de Mayo</p>
+        <p>21:00</p>
+    </div>
+
+    <div class="countdown" id="countdown">
+        <div>
+            <span id="days">00</span>
+            <small>Días</small>
+        </div>
+        <div>
+            <span id="hours">00</span>
+            <small>Horas</small>
+        </div>
+        <div>
+            <span id="minutes">00</span>
+            <small>Minutos</small>
+        </div>
+        <div>
+            <span id="seconds">00</span>
+            <small>Segundos</small>
+        </div>
+    </div>
+
+    <div class="rounded-box">
+        <h3>Dirección</h3>
+        <p>Salón Colores</p>
+        <p>Calle 24 n° 4691 entre Av. Montevideo y 175</p>
+    </div>
+
+    <a href="https://wa.me/542215989210?text=Hola%20soy%20(Completar%20con%20el%20nombre%20y%20apellido)%20y%20vos%20a%20asistir%20al%2015%20de%20Mia"
+        class="button">¿Vas a asistir?</a>
+
+    <div class="rounded-box">
+        <h3>Dress Code</h3>
+        <p>Prepárate Elegante Sport</p>
+    </div>
+
+    <div class="carousel" id="carousel">
+        <div class="carousel-images">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1523640166233.jpg" alt="Imagen 1">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20180701-WA0002.jpeg" alt="Imagen 2">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20190828-WA0013.jpg" alt="Imagen 3">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/739.jpg" alt="Imagen 4">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/IMG-20210420-WA0041.jpeg" alt="Imagen 5">
+        </div>
+    </div>
+
+    <script>
+        const countdown = document.getElementById('countdown');
+        const targetDate = new Date('May 3, 2025 21:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        const carouselImages = document.querySelector('.carousel-images');
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % 5;
+            carouselImages.style.transform = `translateX(-${index * 300}px)`;
+        }, 5000);
+    </script>
+</body>
+
+</html>
