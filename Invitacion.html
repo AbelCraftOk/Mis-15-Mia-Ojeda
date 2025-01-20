@@ -1,209 +1,252 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitacion</title>
+    <title>Invitación</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #F6E6FA;
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #EBDCF4, #D9B3E6);
+            color: #5D3A9B;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, p {
             text-align: center;
-            color: #5E2B7F;
         }
 
         h1 {
             font-size: 3rem;
-            color: #A780C9;
-            margin: 10px;
+            margin-bottom: 10px;
         }
 
         h2 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .title-decor {
             font-size: 2rem;
-            color: #B293D6;
-            margin: 5px;
+            color: #7E57C2;
+            margin: 20px 0;
+            position: relative;
         }
 
-        h3 {
-            font-size: 1.5rem;
-            color: #5E2B7F;
-            margin: 5px;
+        .title-decor::before, .title-decor::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #5D3A9B;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-        .recuadro {
-            border-radius: 15px;
-            background-color: #EAD6F4;
-            margin: 20px auto;
-            padding: 15px;
-            width: 80%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        .title-decor::before {
+            left: -60px;
         }
 
-        .boton {
-            display: inline-block;
-            background-color: #B293D6;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .boton:hover {
-            background-color: #5E2B7F;
-        }
-
-        .carrusel {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px auto;
-            width: 90%;
-            overflow: hidden;
-        }
-
-        .carrusel img {
-            width: 280px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 0 10px;
-            opacity: 0.5;
-            transition: opacity 0.5s;
-        }
-
-        .carrusel img.active {
-            opacity: 1;
+        .title-decor::after {
+            right: -60px;
         }
 
         .countdown {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            margin: 20px;
+            gap: 15px;
+            margin: 30px 0;
         }
 
         .countdown div {
+            background: #E8DFF1;
+            border: 3px solid #5D3A9B;
             border-radius: 50%;
-            background-color: #A780C9;
             width: 80px;
             height: 80px;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            color: white;
-            font-weight: bold;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            position: relative;
         }
 
-        .decoracion {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .countdown div span {
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .card {
+            background: #F7EFFB;
+            border: 2px solid #D1BDE3;
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+            width: 90%;
+            max-width: 300px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: url('https://abelcraftok.github.io/Mis-15-Mia-Ojeda/flores.png');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
+            flex-shrink: 0;
+            filter: grayscale(50%);
+            transition: filter 0.5s ease;
+        }
+
+        .carousel-images img.active {
+            filter: none;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #5D3A9B;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #7E57C2;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                width: 90%;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="decoracion"></div>
-
     <h1>MIA</h1>
     <h2>Mis 15 años</h2>
 
-    <h3>FIESTA</h3>
+    <h3 class="title-decor">FIESTA</h3>
 
-    <div class="countdown">
+    <div class="countdown" id="countdown">
         <div>
             <span id="days">00</span>
-            <small>Días</small>
+            <span>Días</span>
         </div>
         <div>
             <span id="hours">00</span>
-            <small>Horas</small>
+            <span>Horas</span>
         </div>
         <div>
             <span id="minutes">00</span>
-            <small>Minutos</small>
+            <span>Minutos</span>
         </div>
         <div>
             <span id="seconds">00</span>
-            <small>Segundos</small>
+            <span>Segundos</span>
         </div>
     </div>
 
-    <div class="recuadro">
-        <h3>Fecha</h3>
+    <div class="card">
+        <h3 class="title-decor">Fecha</h3>
         <p>Sábado 3 de Mayo</p>
-        <p>21:00 hs</p>
+        <p>21:00</p>
     </div>
 
-    <div class="recuadro">
-        <h3>Dirección</h3>
+    <div class="card">
+        <h3 class="title-decor">Dirección</h3>
         <p>Salón Colores</p>
         <p>Calle 24 n° 4691 entre Av. Montevideo y 175</p>
     </div>
 
-    <div class="recuadro">
-        <h3>Regalo</h3>
-        <p>Si me queres regalar algo y no sabes qué, en el salón habrá un buzón o te dejo mis datos:</p>
-        <p><strong>ALIAS: MIA.OJEDA.2010</strong></p>
+    <div class="card">
+        <h3 class="title-decor">Dress Code</h3>
+        <p>Elegante Sport</p>
     </div>
 
-    <div class="recuadro">
-        <h3>Dress Code</h3>
-        <p>Preparate EleganteSport</p>
+    <div class="card">
+        <p>Si me querés regalar algo y no sabés qué, en el salón habrá un buzón o te dejo mis datos:</p>
+        <p class="title-decor">ALIAS: MIA.OJEDA.2010</p>
     </div>
 
-    <a class="boton"
-        href="https://wa.me/542215966651?text=Hola%20soy%20(Completar%20con%20el%20nombre%20y%20apellido)%20y%20voy%20a%20asistir%20al%2015%20de%20Mia">Confirmar
-        Asistencia</a>
+    <a class="btn" href="https://wa.me/542215989210?text=Hola%20soy%20(Completar%20con%20el%20nombre%20y%20apellido)%20y%20voy%20a%20asistir%20al%2015%20de%20Mia" target="_blank">Confirmar Asistencia</a>
 
-    <div class="carrusel">
-        <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1523640166233.jpg" class="active">
-        <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20180701-WA0002.jpeg">
-        <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20190828-WA0013.jpg">
-        <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/739.jpg">
-        <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/IMG-20210420-WA0041.jpeg">
+    <div class="carousel" id="carousel">
+        <div class="carousel-images">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1523640166233.jpg" alt="Imagen 1" class="active">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20180701-WA0002.jpeg" alt="Imagen 2">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20190828-WA0013.jpg" alt="Imagen 3">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/739.jpg" alt="Imagen 4">
+            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/IMG-20210420-WA0041.jpeg" alt="Imagen 5">
+        </div>
     </div>
 
     <script>
-        // Cuenta atrás
-        const countdown = () => {
-            const eventDate = new Date("May 3, 2025 21:00:00").getTime();
+        const carousel = document.getElementById('carousel');
+        const images = carousel.querySelectorAll('img');
+        let index = 0;
+
+        setInterval(() => {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+
+            const offset = -index * 100;
+            carousel.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }, 5000);
+
+        // Countdown
+        const countdown = document.getElementById('countdown');
+        const targetDate = new Date('May 3, 2025 21:00:00').getTime();
+
+        setInterval(() => {
             const now = new Date().getTime();
-            const distance = eventDate - now;
+            const distance = targetDate - now;
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-
-            if (distance < 0) {
-                clearInterval(interval);
-                document.querySelector(".countdown").innerText = "¡Es hora de celebrar!";
-            }
-        };
-
-        const interval = setInterval(countdown, 1000);
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }, 1000);
     </script>
 </body>
-
 </html>
