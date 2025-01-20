@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,10 @@
             min-height: 100vh;
         }
 
-        h1, h2, h3, p {
+        h1,
+        h2,
+        h3,
+        p {
             text-align: center;
         }
 
@@ -40,7 +44,8 @@
             position: relative;
         }
 
-        .title-decor::before, .title-decor::after {
+        .title-decor::before,
+        .title-decor::after {
             content: "";
             position: absolute;
             width: 50px;
@@ -97,32 +102,6 @@
             text-align: center;
         }
 
-        .carousel {
-            position: relative;
-            width: 90%;
-            max-width: 300px;
-            margin: 30px auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-images img {
-            width: 100%;
-            flex-shrink: 0;
-            filter: grayscale(50%);
-            transition: filter 0.5s ease;
-        }
-
-        .carousel-images img.active {
-            filter: none;
-        }
-
         .btn {
             display: inline-block;
             background: #5D3A9B;
@@ -156,6 +135,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>MIA</h1>
     <h2>Mis 15 años</h2>
@@ -200,35 +180,14 @@
 
     <div class="card">
         <p>Si me querés regalar algo y no sabés qué, en el salón habrá un buzón o te dejo mis datos:</p>
-        <p class="title-decor">ALIAS: MIA.OJEDA.2010</p>
+        <p>ALIAS: MIA.OJEDA.2010</p>
     </div>
 
-    <a class="btn" href="https://wa.me/542215989210?text=Hola%20soy%20(Completar%20con%20el%20nombre%20y%20apellido)%20y%20voy%20a%20asistir%20al%2015%20de%20Mia" target="_blank">Confirmar Asistencia</a>
-
-    <div class="carousel" id="carousel">
-        <div class="carousel-images">
-            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1523640166233.jpg" alt="Imagen 1" class="active">
-            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20180701-WA0002.jpeg" alt="Imagen 2">
-            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/1IMG-20190828-WA0013.jpg" alt="Imagen 3">
-            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/739.jpg" alt="Imagen 4">
-            <img src="https://abelcraftok.github.io/Mis-15-Mia-Ojeda/IMG-20210420-WA0041.jpeg" alt="Imagen 5">
-        </div>
-    </div>
-
+    <a class="btn"
+        href="https://wa.me/542215989210?text=Hola%20soy%20(Completar%20con%20el%20nombre%20y%20apellido)%20y%20voy%20a%20asistir%20al%2015%20de%20Mia"
+        target="_blank">Confirmar Asistencia</a>
+    
     <script>
-        const carousel = document.getElementById('carousel');
-        const images = carousel.querySelectorAll('img');
-        let index = 0;
-
-        setInterval(() => {
-            images[index].classList.remove('active');
-            index = (index + 1) % images.length;
-            images[index].classList.add('active');
-
-            const offset = -index * 100;
-            carousel.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
-        }, 5000);
-
         // Countdown
         const countdown = document.getElementById('countdown');
         const targetDate = new Date('May 3, 2025 21:00:00').getTime();
@@ -249,4 +208,5 @@
         }, 1000);
     </script>
 </body>
+
 </html>
