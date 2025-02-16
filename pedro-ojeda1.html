@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación</title>
+    <link rel="Icon" type="image/jpg" href="https://abelcraftok.github.io/logos/lodepedro-logo.jpg">
+    <style>
+        /* Paleta de colores */
+        :root {
+            --color-primario: #2c3e50;
+            --color-secundario: #f9f9f9;
+            --color-fondo: #e3e9f1;
+            --color-texto: #34495e;
+            --color-destacado: #3498db;
+            --color-boton: #2980b9;
+        }
+        
+        /* Configuración global */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Contenedor principal */
+        .contenedor {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background-color: var(--color-secundario);
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Input y botón */
+        input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid var(--color-primario);
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: var(--color-boton);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: var(--color-destacado);
+        }
+
+        .qr-btn {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        /* Pestaña de invitación */
+        .contador {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .circulo {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-destacado);
+            color: white;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--color-secundario);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .info button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            border: none;
+            background-color: var(--color-boton);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .info button:hover {
+            background-color: var(--color-destacado);
+        }
+
+        #rec-info1 {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body onload="mostrarLogin()">
+
+    <!-- Pestaña de login -->
+    <div id="login" class="contenedor">
+        <h2>Antes de entrar a la invitación tenemos que comprobar que seas un/a invitado/a.</h2>
+        <p>En la siguiente barra escribe la clave de acceso o escanea el QR que recibiste en tu WhatsApp.</p>
+        <input type="text" id="codigo">
+        <img src="https://abelcraftok.github.io/logos/camara.png" class="qr-btn" onclick="escanearQR()">
+        <button class="btn" onclick="validarCodigo()">Ingresar</button>
+    </div>
+
+    <!-- Pestaña de invitación -->
+    <div id="invitacion" class="contenedor">
+        <h1>JUNTADA</h1>
+        <p>PARA PASAR EL DÍA</p>
+
+        <div class="contador">
+            <div class="circulo"><span id="dias">0</span> <small>Días</small></div>
+            <div class="circulo"><span id="horas">0</span> <small>Horas</small></div>
+            <div class="circulo"><span id="minutos">0</span> <small>Min</small></div>
+            <div class="circulo"><span id="segundos">0</span> <small>Seg</small></div>
+        </div>
+
+        <div class="info">
+            <h3>Fecha</h3>
+            <p>Sábado 8 de Marzo</p>
+            <p>13:00 - 18:00</p>
+        </div>
+
+        <div class="info">
+            <h3>Dirección</h3>
+            <p>Quinta: LoDePedro</p>
+            <p>Calle 166, entre 724 y 725</p>
+            <button onclick="window.open('https://maps.app.goo.gl/fLZYiH3ivqA8KKd8A')">Abrir ubicación en Google Maps</button>
+        </div>
+
+        <div class="info">
+            <h3>Recomendaciones sobre la ropa</h3>
+            <button onclick="mostrarRecInfo()">Ver las Recomendaciones</button>
+        </div>
+
+        <button class="btn" onclick="window.open('https://wa.me/542215989210?text=Hola,%20si%20voy%20a%20poder%20asistir%20a%20la%20juntada...')">Confirmar Asistencia</button>
+    </div>
+
+    <!-- Ropa recomendada -->
+    <div id="rec-info1" onclick="cerrarRecInfo()">
+        <p>- Vení cómodo/a para jugar.</p>
+        <p>- Trae un bolso con: Malla, Toalla, Ojotas y Zapatillas/Botines si vas a jugar al fútbol.</p>
+    </div>
+
+    <script>
+        function mostrarLogin() {
+            document.getElementById('login').style.display = 'block';
+        }
+
+        function validarCodigo() {
+            let codigo = document.getElementById("codigo").value;
+            if (codigo === "16612317") {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('invitacion').style.display = 'block';
+                iniciarCuentaAtras();
+            } else {
+                alert("Código incorrecto");
+            }
+        }
+
+        function iniciarCuentaAtras() {
+            let evento = new Date("March 8, 2025 13:00:00").getTime();
+            setInterval(function() {
+                let ahora = new Date().getTime();
+                let diferencia = evento - ahora;
+                let dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+                let horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+                let segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+                document.getElementById('dias').textContent = dias;
+                document.getElementById('horas').textContent = horas;
+                document.getElementById('minutos').textContent = minutos;
+                document.getElementById('segundos').textContent = segundos;
+            }, 1000);
+        }
+
+        function mostrarRecInfo() {
+            document.getElementById('rec-info1').style.display = 'block';
+        }
+
+        function cerrarRecInfo() {
+            document.getElementById('rec-info1').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
